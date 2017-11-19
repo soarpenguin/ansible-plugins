@@ -38,7 +38,7 @@ class CallbackModule(CallbackBase):
 
     TIME_FORMAT="%b %d %Y %H:%M:%S"
     MSG_FORMAT="%(now)s - %(category) - %(data)s\n"
-    LOG_PATH=os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), "../")
+    LOG_PATH=os.path.join(os.path.abspath(os.path.dirname(__file__)), "../../")
 
     def __init__(self):
 
@@ -60,8 +60,7 @@ class CallbackModule(CallbackBase):
         self.log("playbook", "starting...")
 
     def v2_playbook_on_play_start(self, play):
-        self.log(play.name, "starting...")
+        self.log(play.name, "starting %s ...".format(play.name))
 
     def v2_playbook_on_task_start(self, task, is_conditional):
-        self.log(task.name, "starting...")
-
+        self.log(task.name, "starting %s ...".format(task.name))
