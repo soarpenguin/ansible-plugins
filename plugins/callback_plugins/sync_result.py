@@ -60,7 +60,7 @@ class CallbackModule(CallbackBase):
         self.log("playbook", "starting...")
 
     def v2_playbook_on_play_start(self, play):
-        self.log(play.name, "starting %s ...".format(play.name))
+        self.log(play.name, "starting {0} ...".format(play.name))
 
     def v2_playbook_on_task_start(self, task, is_conditional):
-        self.log(task.name, "starting %s ...".format(task.name))
+        self.log(task.name, "starting {0} ...".format(task.name))
