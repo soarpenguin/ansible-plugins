@@ -64,3 +64,10 @@ class CallbackModule(CallbackBase):
 
     def v2_playbook_on_task_start(self, task, is_conditional):
         self.log(task.name, "starting {0} ...".format(task.name))
+
+    def v2_runner_on_failed(self, result, ignore_errors=False):
+        host = result._host.get_name()
+        self.log("failed", 'install failed in {0}'.format(host))
+
+    def v2_playbook_on_stats(self, stats):
+        self.log("finish", "finish install cluster.")
